@@ -1,7 +1,9 @@
 <template>
   <div class="w-full h-min flex items-center justify-between py-4">
     <div class="font-medium">Sklep Jasia</div>
-    <Search />
+    <div>
+      <Search />
+    </div>
   </div>
   <hr />
 </template>
