@@ -1,8 +1,9 @@
 <template>
-  <div class="w-full h-min flex justify-between px-6 py-4">
-    <div>Sklep Jasia</div>
+  <div class="w-full h-min flex items-center justify-between py-4">
+    <div class="font-medium">Sklep Jasia</div>
     <Search />
   </div>
+  <hr />
 </template>
 
 <script lang="ts">
