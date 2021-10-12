@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    class="w-full h-auto flex flex-col justify-center px-6"
+    v-on:keyup.tab="focusSearch"
+    v-on:keyup.esc="unfocusSearch">
     <Navbar />
     <Filters />
     <Table />
@@ -12,12 +15,20 @@ import Navbar from './components/Navbar.vue'
 import Filters from './components/Filters.vue'
 import Table from './components/Table.vue'
 
+import { focusById } from './composables/useUtils'
+
 export default defineComponent({
   name: 'App',
   components: { Navbar, Filters, Table },
-  props: {},
   setup() {
-    return {}
+    const focusSearch = (): void => {
+      focusById('inputSearch', 'focus')
+    }
+    const unfocusSearch = (): void => {
+      focusById('inputSearch', 'unfocus')
+    }
+
+    return { focusSearch, unfocusSearch }
   },
 })
 </script>
