@@ -4,7 +4,7 @@
     type="text"
     placeholder="(Tab) Szukaj..."
     ref="inputSearch"
-    class="p-1 pl-2" />
+    class="p-1 pl-2 border border-gray-300 rounded" />
 </template>
 
 <script lang="ts">
