@@ -1,5 +1,7 @@
 <template>
-  <div>Currency</div>
+  <div>
+    <span> PLN / EUR / USD </span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -9,7 +11,6 @@ export default defineComponent({
   name: 'Currency',
   components: {},
   setup() {
-
     return {}
   },
 })
