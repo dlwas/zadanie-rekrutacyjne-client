@@ -4,7 +4,7 @@
       <span @click="toggleFilters" class="cursor-pointer">FILTRY I KATEGORIE</span>
     </div>
     <div v-if="isExpanded" class="flex flex-wrap md:space-x-10">
-      <FiltersItem label="Domki:" :data="filters.house" />
+      <FiltersItem label="Domki:" :data="filters.houses" />
       <FiltersItem label="Zwierzęta:" :data="filters.animals" />
     </div>
   </div>
@@ -13,6 +13,7 @@
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
 import FiltersItem from './FiltersItem.vue'
+import useData from '../composables/useData'
 import useBreakpoints from '../composables/useBreakpoints'
 
 export default defineComponent({
@@ -21,6 +22,7 @@ export default defineComponent({
   setup() {
     const { windowWidth } = useBreakpoints()
     const isExpanded = ref(windowWidth.value >= 768)
+    const filters = useData.value
 
     const toggleFilters = () => {
       isExpanded.value = isExpanded.value == false ? true : false
@@ -28,63 +30,6 @@ export default defineComponent({
 
     watch(windowWidth, () => {
       isExpanded.value = windowWidth.value >= 768
-    })
-
-    const filters = ref({
-      house: [
-        {
-          name: 'Wszystkie',
-          default: true,
-          value: null,
-        },
-        {
-          name: 'Na drzewie',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Na ziemi',
-          default: false,
-          value: 1,
-        },
-      ],
-      animals: [
-        {
-          name: 'Koty',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Psy',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Konie',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Ptaki',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Jeże',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Króliki',
-          default: false,
-          value: 1,
-        },
-        {
-          name: 'Kury',
-          default: false,
-          value: 1,
-        },
-      ],
     })
 
     return { isExpanded, toggleFilters, filters }
