@@ -21,12 +21,14 @@ listen: http://localhost:3000/
 - [x] Sortowanie po kolumnach
 - [x] Wyszukiwanie po kolumnach
 - [x] Zmiana waluty na `PLN`, `USD`, `EUR` (cena, symbol)
+- [x] Walidacje przy dodawaniu nowej kategorio
 
 ### Funkcje dodatkowe
 
 - [x] RWD - Widok mobilny (iPhone 8 Plus)
 - [x] RWD - Widok desktopowy
 - [x] `Tab` - focus na wyszukiwarkę
+- [x] `Esc` - un focus na wyszukiwarkę
 
 #
 
