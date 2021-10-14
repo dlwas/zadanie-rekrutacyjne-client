@@ -1,8 +1,7 @@
 import { ref } from 'vue'
-// import data from './useData'
-import { fetchData } from './useFetch'
+import { getData } from './useData'
 
-const data = await fetchData('http://localhost:3001/data')
+const data: any = ref(await getData())
 
 const dataSelected = (array: any) => {
   const results = []

@@ -1,7 +1,7 @@
 <template>
   <div class="my-3">
     <p>{{ label }}</p>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap flex-shrink">
       <span
         v-for="(item, index) in filtredHouses"
         :key="index"

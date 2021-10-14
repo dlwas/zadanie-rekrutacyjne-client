@@ -7,12 +7,12 @@ export const stateFetch = reactive({
 })
 
 const defaultUrl = ''
+const defaultOptions = {}
 
-export const fetchData = async (url: Request | string | URL = defaultUrl) => {
+export const fetchData = async (url: Request | string | URL = defaultUrl, options: object = defaultOptions) => {
   stateFetch.loading = true
-
   try {
-    const response = await fetch(url as keyof object)
+    const response = await fetch(url as keyof object, options)
     const json = await response.json()
     response.ok ? (stateFetch.data = json) : (stateFetch.error = `Error on 'fetching' data`)
     return json

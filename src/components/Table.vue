@@ -33,11 +33,8 @@
               selectedHouses.includes(indexHousesInAnimals)
             ">
             {{
-              housesAnimals.name == 'Na drzewie'
-                ? Math.floor((itemAnimals.value * housesMultiplier[0]) / selectedCurrencys) + // @ts-ignore
-                  symbolCurrency
-                : Math.floor((itemAnimals.value * housesMultiplier[1]) / selectedCurrencys) + // @ts-ignore
-                  symbolCurrency
+              Math.floor((itemAnimals.value * housesAnimals.value) / selectedCurrencys) + // @ts-ignore
+              symbolCurrency
             }}
           </td>
         </tr>
@@ -64,8 +61,8 @@ export default defineComponent({
     const isTableEmpty = computed(
       () => selectedHouses.value.length == 0 || selectedAnimals.value.length == 0
     )
+    const selectedCurrencys = computed(() => stateCurreny[selectedCurrency.value as keyof object])
     const housesMultiplier: number[] = [1, 2]
-    const selectedCurrencys: number = stateCurreny[selectedCurrency.value as keyof object]
 
     return {
       sort,
