@@ -13,7 +13,8 @@ listen: http://localhost:3000/
 ```
 
 ### Obsługa v.2 - ważne
-Aby aplikacja poprawnie działała proszę o zapoznanie się z repozytorium: [zadanie-rekrutacyjne - Server](http://www.example.com/)
+
+Aby aplikacja poprawnie działała proszę o zapoznanie się z repozytorium: [zadanie-rekrutacyjne - Server](https://github.com/dlwas/zadanie-rekrutacyjne-server)
 
 #
 
