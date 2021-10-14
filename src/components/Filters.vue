@@ -1,28 +1,27 @@
 <template>
   <div class="w-full h-auto my-3">
-    <div class="text-right">
+    <div class="text-left">
       <span @click="toggleFilters" class="cursor-pointer">FILTRY I KATEGORIE</span>
     </div>
-    <div v-if="isExpanded" class="flex flex-wrap md:space-x-10">
-      <FiltersItem label="Domki:" :data="filters.houses" />
-      <FiltersItem label="Zwierzęta:" :data="filters.animals" />
+    <div v-if="isExpanded" class="flex flex-wrap md:space-x-10 cursor-pointer">
+      <FiltersItemHouses label="Domki:" />
+      <FiltersItemAnimals label="Zwierzęta:" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
-import FiltersItem from './FiltersItem.vue'
-import useData from '../composables/useData'
+import FiltersItemHouses from './FiltersItemHouses.vue'
+import FiltersItemAnimals from './FiltersItemAnimals.vue'
 import useBreakpoints from '../composables/useBreakpoints'
 
 export default defineComponent({
   name: 'Filters',
-  components: { FiltersItem },
+  components: { FiltersItemHouses, FiltersItemAnimals },
   setup() {
     const { windowWidth } = useBreakpoints()
     const isExpanded = ref(windowWidth.value >= 768)
-    const filters = useData.value
 
     const toggleFilters = () => {
       isExpanded.value = isExpanded.value == false ? true : false
@@ -32,7 +31,7 @@ export default defineComponent({
       isExpanded.value = windowWidth.value >= 768
     })
 
-    return { isExpanded, toggleFilters, filters }
+    return { isExpanded, toggleFilters }
   },
 })
 </script>

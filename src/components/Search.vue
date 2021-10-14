@@ -4,17 +4,22 @@
     type="text"
     placeholder="(Tab) Szukaj..."
     ref="inputSearch"
-    class="p-1 pl-2 border border-gray-300 rounded" />
+    class="p-1 pl-2 border border-gray-300 rounded"
+    @keyup.enter="search(pharse)"
+    v-model="pharse" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import { search } from '../composables/useSearch'
 
 export default defineComponent({
   name: 'Search',
   components: {},
   setup() {
-    return {}
+    const pharse = ref('')
+
+    return { search, pharse }
   },
 })
 </script>
