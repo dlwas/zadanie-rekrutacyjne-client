@@ -1,9 +1,9 @@
 <template>
-  <div class="my-3">
-    <p>Waluta</p>
-    <div class="flex flex-wrap">
+  <div class="my-2">
+    <p>Waluty:</p>
+    <div class="flex flex-wrap flex-shrink">
       <span
-        class="mr-3 cursor-pointer px-2 py-1 border border-gray-300 rounded text-center"
+        class="m-1 px-2 py-1 border border-gray-300 rounded"
         :class="selectedCurrency == index ? 'bg-blue-100' : 'bg-transparent'"
         v-for="(_, index) in stateCurreny"
         :key="index"

@@ -1,5 +1,5 @@
 <template>
-  <div class="my-3">
+  <div class="my-2">
     <p>{{ label }}</p>
     <div class="flex flex-wrap flex-shrink">
       <span
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from 'vue'
+import { defineComponent } from 'vue'
 import { filtredAnimals, selectedAnimals, selectIndexes } from '../composables/useFilters'
 
 export default defineComponent({

@@ -3,8 +3,8 @@
     <div class="text-left">
       <span @click="toggleFilters" class="uppercase cursor-pointer">filtry i kategorie</span>
     </div>
-    <div v-if="isExpanded" class="flex flex-wrap md:space-x-10 cursor-pointer">
-      <Currency />
+    <div v-if="isExpanded" class="flex flex-wrap cursor-pointer">
+      <Currency /> 
       <FiltersItemHouses label="Domki:" />
       <FiltersItemAnimals label="Zwierzęta:" />
     </div>

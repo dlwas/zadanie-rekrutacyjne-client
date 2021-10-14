@@ -10,14 +10,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, Ref, ref, watch } from 'vue'
 import { search } from '../composables/useSearch'
 
 export default defineComponent({
   name: 'Search',
   components: {},
   setup() {
-    const pharse = ref('')
+    const pharse: Ref<string> | Ref<number> = ref('')
+
+    watch(pharse, () => {
+      search(pharse.value)
+    })
 
     return { search, pharse }
   },

@@ -1,17 +1,23 @@
 import { ref } from 'vue'
-import { rawData, filtredAnimals } from './useFilters'
+import { filtredAnimals, formatedAnimals } from './useFilters'
 
 export const search = (pharse: string | number) => {
-  filtredAnimals.value = rawData.value.animals
+  filtredAnimals.value = formatedAnimals.value
   if (pharse != null) {
     const results: any = ref([])
-    filtredAnimals.value.find((item) => {
-      if (item.name.includes(String(pharse)) || item.value == pharse) {
+    filtredAnimals.value.find((item: any) => {
+      // for numbers
+      item.value.map((el: any) => {
+        if (el == pharse) {
+          results.value.push(item)
+        }
+      })
+      // for stirngs
+      if (item.name.toLowerCase().includes(String(pharse).toLowerCase())) {
         results.value.push(item)
       }
     })
-
-    if (pharse == '') filtredAnimals.value = rawData.value.animals
+    if (pharse == '') filtredAnimals.value = formatedAnimals.value
     if (pharse != '') filtredAnimals.value = results.value
   }
 }
